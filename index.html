@@ -1,137 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Delight</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Café Aroma</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Café Aroma</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
 
-        body {
-            background: #f8f5f2;
-            color: #333;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        header {
-            background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
+    body {
+      background: #f8f1e8;
+      color: #2d1e16;
+      overflow-x: hidden;
+    }
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(248, 241, 232, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      animation: slideDown 0.8s ease forwards;
+    }
 
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 24px;
+      font-weight: 800;
+      color: #5b341f;
+    }
 
-        .btn {
-            padding: 12px 25px;
-            background: #c59d5f;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: 0.3s;
-        }
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6f3f24, #b36b36);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      overflow: hidden;
+      animation: coffeePulse 2.5s ease-in-out infinite;
+    }
 
-        .btn:hover {
-            background: #a67c3b;
-        }
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
+    nav a {
+      position: relative;
+      margin-left: 30px;
+      text-decoration: none;
+      color: #3b281d;
+      font-weight: 600;
+      transition: 0.3s;
+    }
 
-        .menu {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #b36b36;
+      transition: 0.3s ease;
+    }
 
-        .menu-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 250px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+    nav a:hover {
+      color: #b36b36;
+    }
 
-        .menu-item h3 {
-            margin-bottom: 10px;
-        }
+    nav a:hover::after {
+      width: 100%;
+    }
 
-        footer {
-            background: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
+    .hero {
+      min-height: 100vh;
+      padding: 140px 8% 60px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 50px;
+      position: relative;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(179, 107, 54, 0.12);
+      filter: blur(4px);
+      z-index: -1;
+      animation: floatBlob 6s ease-in-out infinite;
+    }
+
+    .hero::before {
+      width: 220px;
+      height: 220px;
+      top: 130px;
+      left: 5%;
+    }
+
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      bottom: 70px;
+      right: 6%;
+      animation-delay: 1.2s;
+    }
+
+    .hero-text span {
+      display: inline-block;
+      background: #ead2bd;
+      color: #8a4f27;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #6c5547;
+      max-width: 560px;
+      margin-bottom: 34px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards;
+      animation-delay: 0.6s;
+    }
+
+    .btn {
+      padding: 15px 26px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #6f3f24;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(111, 63, 36, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #4f2c19;
+      transform: translateY(-5px) scale(1.03);
+    }
+
+    .btn-secondary {
+      border: 2px solid #6f3f24;
+      color: #6f3f24;
+    }
+
+    .btn-secondary:hover {
+      background: #6f3f24;
+      color: #fff;
+      transform: translateY(-5px) scale(1.03);
+    }
+
+    .hero-card {
+      position: relative;
+      background: linear-gradient(145deg, #fff7ef, #ead2bd);
+      border-radius: 36px;
+      padding: 28px;
+      box-shadow: 0 30px 80px rgba(71, 39, 23, 0.18);
+      opacity: 0;
+      animation: fadeLeft 1s ease forwards, floatCard 4s ease-in-out infinite;
+      animation-delay: 0.5s, 1.5s;
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 28px;
+      transition: 0.5s ease;
+    }
+
+    .hero-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .floating-box {
+      position: absolute;
+      left: -30px;
+      bottom: 45px;
+      background: #fff;
+      padding: 18px 22px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      animation: floatBox 3s ease-in-out infinite;
+    }
+
+    .floating-box h3 {
+      color: #5b341f;
+      margin-bottom: 5px;
+    }
+
+    .floating-box p {
+      color: #7c6354;
+      font-size: 14px;
+    }
+
+    .features {
+      padding: 70px 8%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature {
+      background: #fffaf4;
+      padding: 32px;
+      border-radius: 28px;
+      box-shadow: 0 15px 40px rgba(71, 39, 23, 0.08);
+      transition: 0.3s;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    .feature:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .feature:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .feature:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(71, 39, 23, 0.14);
+    }
+
+    .feature h3 {
+      color: #5b341f;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .feature p {
+      color: #745d50;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 30px 8%;
+      text-align: center;
+      color: #7c6354;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeLeft {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes floatCard {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes floatBox {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes coffeePulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(111, 63, 36, 0);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 10px 25px rgba(111, 63, 36, 0.25);
+      }
+    }
+
+    @keyframes floatBlob {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+      }
+      50% {
+        transform: translateY(-25px) translateX(15px);
+      }
+    }
+
+    @media (max-width: 900px) {
+      header {
+        padding: 20px 6%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 120px 6% 40px;
+      }
+
+      .hero-card img {
+        height: 360px;
+      }
+
+      .floating-box {
+        left: 20px;
+        bottom: 30px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        padding: 50px 6%;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-    <div>
-        <h1>Welcome to Café Delight</h1>
-        <p>Your perfect place for coffee & relaxation</p>
-        <a href="#menu" class="btn">View Menu</a>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">
+        <!-- <img src="logo.png" alt="Logo"> -->
+        ☕
+      </div>
+      Café Aroma
     </div>
-</header>
 
-<section id="about">
-    <h2>About Us</h2>
-    <p>At Café Delight, we serve freshly brewed coffee, delicious pastries, and a cozy atmosphere perfect for work or relaxation.</p>
-</section>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
 
-<section id="menu">
-    <h2>Our Menu</h2>
-    <div class="menu">
-        <div class="menu-item">
-            <h3>Espresso</h3>
-            <p>Rich and bold coffee shot.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Cappuccino</h3>
-            <p>Perfect blend of espresso, milk, and foam.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Latte</h3>
-            <p>Smooth and creamy coffee.</p>
-        </div>
-        <div class="menu-item">
-            <h3>Pastries</h3>
-            <p>Freshly baked every day.</p>
-        </div>
+  <section class="hero">
+    <div class="hero-text">
+      <span>Freshly brewed every day</span>
+      <h1>Welcome to your cozy coffee escape.</h1>
+      <p>
+        Enjoy handcrafted coffee, warm pastries, and a peaceful atmosphere made
+        for slow mornings, friendly talks, and productive afternoons.
+      </p>
+
+      <div class="buttons">
+        <a href="#" class="btn btn-primary">View Menu</a>
+        <a href="#" class="btn btn-secondary">Visit Us</a>
+      </div>
     </div>
-</section>
 
-<section id="contact">
-    <h2>Visit Us</h2>
-    <p>123 Coffee Street, Your City</p>
-    <p>Open Daily: 8:00 AM - 10:00 PM</p>
-</section>
+    <div class="hero-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80" alt="Cafe Coffee" />
 
-<footer>
-    <p>&copy; 2026 Café Delight. All rights reserved.</p>
-</footer>
+      <div class="floating-box">
+        <h3>Best Seller</h3>
+        <p>Caramel Latte & Butter Croissant</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h3>Premium Coffee</h3>
+      <p>Freshly roasted beans brewed with care for a rich and smooth flavor.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Fresh Pastries</h3>
+      <p>Daily baked treats that pair perfectly with your favorite drink.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Cozy Space</h3>
+      <p>A warm and relaxing place to meet, work, study, or unwind.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Café Aroma. All rights reserved.
+  </footer>
 
 </body>
 </html>
