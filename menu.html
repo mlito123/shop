@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salt&Light Cafe Menu</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    background:#f8f1e8;
+    color:#2d1e16;
+}
+
+header{
+    background:#fffaf4;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#6f3f24;
+}
+
+nav a{
+    margin-left:30px;
+    text-decoration:none;
+    color:#3b281d;
+    font-weight:600;
+}
+
+.menu-section{
+    padding:80px 8%;
+}
+
+.menu-section h1{
+    text-align:center;
+    margin-bottom:50px;
+    color:#6f3f24;
+    font-size:50px;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.menu-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.menu-card:hover{
+    transform:translateY(-10px);
+}
+
+.menu-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.menu-info{
+    padding:20px;
+}
+
+.menu-info h3{
+    color:#5b341f;
+    margin-bottom:10px;
+}
+
+.price{
+    color:#b36b36;
+    font-weight:bold;
+    font-size:20px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Salt&Light Cafe</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+    </nav>
+</header>
+
+<section class="menu-section">
+
+    <h1>Our Menu</h1>
+
+    <div class="menu-grid">
+
+        <div class="menu-card">
+            <img src="img/latte.jpg">
+            <div class="menu-info">
+                <h3>Caramel Latte</h3>
+                <p>Rich espresso with steamed milk and caramel.</p>
+                <div class="price">₱180</div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="img/cappuccino.jpg">
+            <div class="menu-info">
+                <h3>Cappuccino</h3>
+                <p>Classic Italian coffee with creamy foam.</p>
+                <div class="price">₱160</div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="img/mocha.jpg">
+            <div class="menu-info">
+                <h3>Mocha</h3>
+                <p>Chocolate and espresso blend.</p>
+                <div class="price">₱190</div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="img/croissant.jpg">
+            <div class="menu-info">
+                <h3>Butter Croissant</h3>
+                <p>Freshly baked and flaky.</p>
+                <div class="price">₱95</div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
